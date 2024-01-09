@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Head from "next/head";
@@ -42,7 +44,7 @@ export default function HomePage() {
         owner_mail: email,
         owner_url: photo_url,
       };
-      fetch("https://task-manager-server-plum-two.vercel.app/tasks", {
+      fetch("https://time-trajer-server.vercel.app/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

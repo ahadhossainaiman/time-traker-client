@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { useSelector } from "react-redux";
-
+/* eslint-disable @next/next/no-img-element */
 const DashboardLayouts = ({ children }) => {
   const { name, email, photo_url } = useSelector((state) => state.userSlice);
   return (

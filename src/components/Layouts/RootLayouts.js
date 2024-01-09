@@ -1,7 +1,7 @@
 import React from 'react';
 import Navber from '../Ui/Navber';
 import FooterSection from '../Ui/Footer';
-
+/* eslint-disable @next/next/no-img-element */
 
 
 const RootLayouts = ({children}) => {

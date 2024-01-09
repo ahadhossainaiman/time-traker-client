@@ -33,7 +33,7 @@ const registerPage = () => {
         photoURL,
       })
     );
-    fetch("https://task-manager-server-plum-two.vercel.app/users", {
+    fetch("https://time-trajer-server.vercel.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

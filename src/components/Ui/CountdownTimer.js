@@ -3,7 +3,7 @@ import moment from "moment";
 import { VscDebugStart } from "react-icons/vsc";
 import { GrStop } from "react-icons/gr";
 import { VscDebugRestart } from "react-icons/vsc";
-
+/* eslint-disable @next/next/no-img-element */
 const CountdownTimer = ({ initialDuration }) => {
   const [duration, setDuration] = useState(initialDuration);
   const [isActive, setIsActive] = useState(false);

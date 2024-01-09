@@ -22,7 +22,7 @@ const DashboardPage = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `https://task-manager-server-plum-two.vercel.app/tasks?email=${email}`
+        `https://time-trajer-server.vercel.app/tasks?email=${email}`
       );
       const data = await response.json();
       // Update state with the new data
@@ -31,6 +31,7 @@ const DashboardPage = () => {
       console.error("Error fetching data:", error);
     }
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (email) {
       fetchData();
@@ -39,20 +40,20 @@ const DashboardPage = () => {
   const handleTaskView = (id) => {
     console.log(id);
     document.getElementById("my_modal_3").showModal();
-    fetch(`https://task-manager-server-plum-two.vercel.app/task?task_id=${id}`)
+    fetch(`https://time-trajer-server.vercel.app/task?task_id=${id}`)
       .then((res) => res.json())
       .then((data) => setSingleTask(data));
   };
   const handleTaskEdit = (id) => {
     document.getElementById("my_modal_4").showModal();
-    fetch(`https://task-manager-server-plum-two.vercel.app/task?task_id=${id}`)
+    fetch(`https://time-trajer-server.vercel.app/task?task_id=${id}`)
       .then((res) => res.json())
       .then((data) => setSingleTask(data));
   };
 
   const onSubmit = (data) => {
     console.log("aiman", data);
-    fetch(`https://task-manager-server-plum-two.vercel.app/updateTask/${data?._id}`, {
+    fetch(`https://time-trajer-server.vercel.app/updateTask/${data?._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +85,7 @@ const DashboardPage = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://task-manager-server-plum-two.vercel.app/task/${id}`, {
+        fetch(`https://time-trajer-server.vercel.app/task/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

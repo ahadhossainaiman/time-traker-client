@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable @next/next/no-img-element */
 import { signInUser } from "@/redux/features/user/userSlice";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

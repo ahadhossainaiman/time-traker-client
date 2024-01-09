@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import auth from "@/firebase/firebase.config";
 import { logOut } from "@/redux/features/user/userSlice";
 import { signOut } from "firebase/auth";
