@@ -22,17 +22,24 @@ const DashboardLayouts = ({ children }) => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content relative">
           <li className="py-[20px]">
-            <Link href="/">{name || "User Name"}</Link>
+            {
+              photo_url ? <img className="w-24 rounded-full mx-auto border-green-500" src={photo_url} alt="" />:<img
+              className="w-16 border-2 border-green-500 rounded-full mx-auto"
+              src='https://www.shutterstock.com/image-vector/human-icon-people-picture-profile-260nw-1011951676.jpg'
+              alt="photo"
+            />
+            }
+            <Link className="text-2xl mx-auto" href="/">{name || "User Name"}</Link>
           </li>
+          
           <li>
-            <a>All Task</a>
+            <Link className="text-xl bg-green-500 hover:bg-purple-500 hover:text-white " href='/dashboard/'>My Task</Link>
           </li>
-          <li>
-            <a>My Task</a>
-          </li>
+          <Link className="absolute bottom-3 text-xl" href='/'>Back To Home</Link>
         </ul>
+       
       </div>
     </div>
   );

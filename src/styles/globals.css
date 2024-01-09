@@ -8,3 +8,52 @@
 *{
 font-family: 'Architects Daughter', cursive;
 }
+
+@font-face {
+    font-family: 'Digital-7';
+    src: url(../fonts/digital-7.ttf) format('truetype');
+    font-weight: 400;
+  }
+.clock{
+  font-family: 'Digital-7';
+  font-weight: 600;
+  font-size: 30px;
+}
+button{
+  border:none;
+  background-color:offwhite;
+  font-size:20px;
+  padding:10px 20px;
+  text-transform:capitalize;
+  cursor:pointer;
+  background-color: rgb(94, 8, 253);
+  color: white;
+  transform:all 0.3s;
+  position:relative;
+}
+button:before{
+  content:"";
+  position :absolute;
+  width:24px;
+  height:24px;
+  top:-5px;
+    left:-5px;
+  border-top:3px solid rgb(0, 252, 55);
+  border-left:3px solid rgb(0, 252, 55);
+  transition:all 0.25s;
+}
+button:hover:before ,button:hover:after{
+  width:104%;
+  height:110%;
+}
+button:after{
+  content:"";
+  position :absolute;
+  width:24px;
+  height:24px;
+  bottom:-5px;
+    right:-5px;
+  border-bottom:3px solid rgb(255, 38, 0);
+  border-right:3px solid rgb(255, 38, 0);
+  transition:all 0.30s;
+}

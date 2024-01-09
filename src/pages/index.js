@@ -10,6 +10,9 @@ import { setUser } from "@/redux/features/user/userSlice";
 import { useForm } from "react-hook-form";
 import CountdownTimer from "@/components/Ui/CountdownTimer";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { TypeAnimation } from "react-type-animation";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,9 +54,10 @@ export default function HomePage() {
           if (data) {
             console.log(data);
             console.log("aiman");
-            // toast.success("Product Added Successfully !", {
-            //   position: toast.POSITION.TOP_CENTER,
-            // });
+            toast.success("Task Create Successfully !", {
+              position: toast.POSITION.TOP_CENTER,
+            });
+            router.push('/dashboard')
             reset();
           }
         });
@@ -63,7 +67,7 @@ export default function HomePage() {
   };
 
   return (
-    <div>
+    <div className="hero min-h-screen bg-base-200 bg-[url('https://previews.123rf.com/images/dstarky/dstarky1707/dstarky170700321/83076789-time-management-vector-seamless-pattern-blue-background.jpg')]">
       <Head>
         <title>Task Manager</title>
         <meta
@@ -73,16 +77,24 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-amber-500 p-10 w-[60%] mx-auto rounded-md">
+      {
+        email?<div className=" p-10 w-[60%] mx-auto rounded-md h-[60%] my-auto"   style={{ backdropFilter:'saturate(180%) blur(5px)'}}>
         {email && (
           <div className="flex gap-4 justify-center items-center">
-            <img
-              className="w-10 border-2 border-green-500 rounded-full"
+            {
+              photo_url ? <img
+              className="w-16 border-4 border-[#5E08FD] rounded-full"
               src={photo_url}
               alt="photo"
-            />
+            /> : <img
+            className="w-10 border-2 border-green-500 rounded-full"
+            src='https://www.shutterstock.com/image-vector/human-icon-people-picture-profile-260nw-1011951676.jpg'
+            alt="photo"
+          />
+            }
+            
             <p>
-              <span className="bg-green-400 px-2 py-1 rounded-xl ">{name}</span>
+              <span className="bg-[#5E08FD] text-white px-2 py-1 rounded-xl text-xl">{name}</span>
             </p>
           </div>
         )}
@@ -118,14 +130,38 @@ export default function HomePage() {
                 {...register("duration", { required: true })}
               />
             </label>
-            <input
-              className="border-gray-500 border-2 hover:bg-red-600  col-span-2 w-1/3 h-10 mx-auto"
+           <button><input
+              // className="border-gray-500 border-2 button hover:bg-red-600  col-span-2 w-1/3 h-10 mx-auto"
+              
               type="submit"
               value="Create Task"
-            />
+            /></button>
           </div>
         </form>
+      </div>:<div className=" p-10 w-[60%] mx-auto rounded-md h-[60%] my-auto"   style={{ backdropFilter:'saturate(180%) blur(5px)'}}>
+        <div className="mx-auto w-[60%] flex flex-col items-center">
+      <TypeAnimation
+  sequence={[
+    // Same substring at the start will only be typed once, initially
+    'Advanced Time Tracking Web Application',
+    1000,
+    'Already Have Account Please Login',
+    1000,
+    'Do Not Have Account Please Register',
+    1000,
+   
+  ]}
+  speed={50}
+  style={{ fontSize: '2em' }}
+  repeat={Infinity}
+/>
+</div>
+ <br />
+ <Link className="flex justify-center" href='/login'> <button className="w-[50%] ">Login</button></Link>
+       
       </div>
+      }
+      
     </div>
   );
 }

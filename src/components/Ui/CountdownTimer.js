@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+import { VscDebugStart } from "react-icons/vsc";
+import { GrStop } from "react-icons/gr";
+import { VscDebugRestart } from "react-icons/vsc";
 
 const CountdownTimer = ({ initialDuration }) => {
   const [duration, setDuration] = useState(initialDuration);
@@ -37,11 +40,11 @@ const CountdownTimer = ({ initialDuration }) => {
     setIsActive(!isActive);
   };
   return (
-    <div className="flex gap-2">
-      {formatDuration(duration)}
+    <div className="flex gap-2 clock items-center " >
+      <span className="clock text-green-500 mx-2 font-bold">{formatDuration(duration)}</span>
       {duration <= 0 && <p>Time's up!</p>}
-      <button onClick={handleRestart}>Restart</button>
-      <button onClick={handleStop}>{isActive ? "Stop" : "Start"}</button>
+      <span onClick={handleRestart}><VscDebugRestart /></span>
+      <span onClick={handleStop}>{isActive ? <GrStop className="text-red-500" /> : <VscDebugStart className="text-blue-500" />}</span>
     </div>
   );
 };

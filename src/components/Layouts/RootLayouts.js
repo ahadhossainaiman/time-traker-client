@@ -8,10 +8,10 @@ const RootLayouts = ({children}) => {
     return (
         <div data-theme="light">
             <Navber />
-            <main className='min-h-screen h-min-[100vh]'>
+            <main className='min-h-screen'>
                 {children}
             </main>
-        <FooterSection/>
+        {/* <FooterSection/> */}
         </div>
     );
 };

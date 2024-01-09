@@ -14,7 +14,7 @@ const Navber = () => {
   };
 
   return (
-    <div className="navbar h-10">
+    <div className="navbar bg-[#66C5E1] ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,8 +48,8 @@ const Navber = () => {
             </li>
           </ul>
         </div>
-        <Link href="/" className="btn btn-ghost text-xl">
-          Task Manager
+        <Link href="/" className="btn w-52 btn-ghost text-xl">
+          <img className="w-52 border-4 border-[#005975] rounded-full" src="https://i.ibb.co/bd5mw2Y/time-flies.gif" alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -71,7 +71,7 @@ const Navber = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar"
               >
-                <div className="w-10 rounded-full">
+                <div className="w-30 border-2 border-[#005975] rounded-full">
                   <img alt="Tailwind CSS Navbar component" src={photo_url} />
                 </div>
               </div>

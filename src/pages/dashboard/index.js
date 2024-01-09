@@ -107,16 +107,16 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto h-[100vh]" data-theme="light">
       <table className="table table-zebra">
         {/* head */}
         <thead>
           <tr>
-            <th>#</th>
-            <th>Task Name</th>
-            <th>Description</th>
-            <th>Timer Set</th>
-            <th>Action</th>
+            <th  className="text-2xl">#</th>
+            <th  className="text-2xl">Task Name</th>
+            <th  className="text-2xl">Description</th>
+            <th  className="text-2xl">Timer Set</th>
+            <th  className="text-2xl">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -126,9 +126,9 @@ const DashboardPage = () => {
             tasks?.map((task, index) => (
               <>
                 <tr key={task._id}>
-                  <th>{index + 1}</th>
-                  <td>{task.task_name}</td>
-                  <td>{task.description.slice(0, 20) + "..."}</td>
+                  <th className="text-2xl">{index + 1}</th>
+                  <td className="text-2xl">{task.task_name}</td>
+                  <td className="text-2xl">{task.description.slice(0, 20) + "..."}</td>
                   <td>
                     <CountdownTimer
                       initialDuration={parseInt(task.duration) * 60 * 1000}
@@ -138,12 +138,15 @@ const DashboardPage = () => {
                     <div className="flex gap-2 justify-start">
                       <MdOutlineDeleteForever
                         onClick={() => handleDelete(task?._id)}
-                        className="text-red-500"
+                        className="text-red-500 text-3xl"
                       />
                       <MdOutlinePreview
                         onClick={() => handleTaskView(task._id)}
+                        className="text-3xl text-blue-500"
                       />
-                      <FaRegEdit onClick={() => handleTaskEdit(task._id)} />
+                      <FaRegEdit onClick={() => handleTaskEdit(task._id)}
+                      className="text-3xl text-green-500"
+                      />
                     </div>
                   </td>
                 </tr>
@@ -157,11 +160,18 @@ const DashboardPage = () => {
 
       <Modal modal_id="my_modal_3">
         <div className="flex gap-2 items-center">
-          <img
+          {
+            photo_url ? <img
             className="w-[45px] rounded-full border-2 border-green-400"
             src={singleTask?.owner_url}
             alt=""
-          />
+          />:<img
+          className="w-10 border-2 border-green-500 rounded-full"
+          src='https://www.shutterstock.com/image-vector/human-icon-people-picture-profile-260nw-1011951676.jpg'
+          alt="photo"
+        />
+          }
+          
           <p>
             <span className="py-1 px-2 bg-green-400 rounded-xl font-bold">
               {singleTask?.task_owner}
@@ -187,11 +197,18 @@ const DashboardPage = () => {
       </Modal>
       <Modal modal_id="my_modal_4">
         <div className="flex gap-2 items-center">
-          <img
+          {
+            photo_url ? <img
             className="w-[45px] rounded-full border-2 border-green-400"
             src={singleTask?.owner_url}
             alt=""
-          />
+          />:<img
+          className="w-10 border-2 border-green-500 rounded-full"
+          src={photo_url}
+          alt="photo"
+        />
+          }
+          
           <p>
             <span className="py-1 px-2 bg-green-400 rounded-xl font-bold">
               {singleTask?.task_owner}
@@ -239,11 +256,14 @@ const DashboardPage = () => {
               />
             </p>
           </div>
-          <input
-            className="border-gray-500 border-2 hover:bg-red-600  col-span-2 w-1/3 h-10 mx-auto"
+          <div className=" w-[40%] mx-auto">
+          <button className=""><input
+            className="mx-auto"
             type="submit"
             value="Update Task"
           />
+          </button>
+          </div>
         </form>
       </Modal>
     </div>
