@@ -22,7 +22,7 @@ const DashboardPage = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/tasks?email=${email}`
+        `https://task-manager-server-plum-two.vercel.app/tasks?email=${email}`
       );
       const data = await response.json();
       // Update state with the new data
@@ -39,20 +39,20 @@ const DashboardPage = () => {
   const handleTaskView = (id) => {
     console.log(id);
     document.getElementById("my_modal_3").showModal();
-    fetch(`http://localhost:5000/task?task_id=${id}`)
+    fetch(`https://task-manager-server-plum-two.vercel.app/task?task_id=${id}`)
       .then((res) => res.json())
       .then((data) => setSingleTask(data));
   };
   const handleTaskEdit = (id) => {
     document.getElementById("my_modal_4").showModal();
-    fetch(`http://localhost:5000/task?task_id=${id}`)
+    fetch(`https://task-manager-server-plum-two.vercel.app/task?task_id=${id}`)
       .then((res) => res.json())
       .then((data) => setSingleTask(data));
   };
 
   const onSubmit = (data) => {
     console.log("aiman", data);
-    fetch(`http://localhost:5000/updateTask/${data?._id}`, {
+    fetch(`https://task-manager-server-plum-two.vercel.app/updateTask/${data?._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const DashboardPage = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/task/${id}`, {
+        fetch(`https://task-manager-server-plum-two.vercel.app/task/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

@@ -42,7 +42,7 @@ export default function HomePage() {
         owner_mail: email,
         owner_url: photo_url,
       };
-      fetch("http://localhost:5000/tasks", {
+      fetch("https://task-manager-server-plum-two.vercel.app/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
