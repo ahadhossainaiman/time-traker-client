@@ -33,7 +33,7 @@ const registerPage = () => {
         photoURL,
       })
     );
-    fetch("https://time-trajer-server.vercel.app/users", {
+    fetch("https://time-trajer-server-production.up.railway.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

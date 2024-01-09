@@ -44,7 +44,7 @@ export default function HomePage() {
         owner_mail: email,
         owner_url: photo_url,
       };
-      fetch("https://time-trajer-server.vercel.app/tasks", {
+      fetch("https://time-trajer-server-production.up.railway.app/tasks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
